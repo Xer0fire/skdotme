@@ -1,0 +1,72 @@
+<section id="{{ .navid }}">
+{{ partial "svg/svgtop.html" (dict "index" .index) }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="mb-0">{{ .header }}</h2>
+				<h5 class="text-on-back">://0{{ .index}}</h5>
+				<hr/>
+			</div>
+		</div>
+		<div class="row">
+			{{ range $index, $element := .xf.Site.Params.projects.item }}
+			<div class="col-md-6 text-center">
+				<div class="card bg-transparent">
+					{{ if isset . "img" }}<img class="card-img-top img-thumbnail" width="200" src="img/projects/{{ .img }}" alt="{{ .title }}">{{end}}
+					<div class="card-body">
+						<h4 class="card-title mb-0">{{ .title }}</h4>
+						<p class="card-text">
+							{{ .text | safeHTML }}
+						</p>
+						{{ if isset . "bottomlink" }}<h6><i class="fab fa-behance"></i> <a href="{{ .bottomlink }}" target="_blank">{{ .bottomlinktext }}</a></h6>{{end}}
+					</div>
+					<div class="card-footer bg-transparent">
+						{{ if isset . "generator" }}<span class="float-left">{{ .generator }}</span>{{end}}
+						{{ if isset . "social" }}
+						<span class="float-right">
+							<nav>
+								<ul>
+									{{ range .social }}
+									<li><a href="{{ .link }}" target="_blank"><i class="{{ .icon }}"></i></a></li>
+									{{end}}
+								</ul>
+							</nav>
+						</span>
+						{{end}}
+					</div>
+				</div>
+			</div>
+		{{ if eq (mod $index 2) 1 }}
+		</div>
+		<div class="row">
+		{{end}}
+			{{end}}
+		</div>
+		{{ if isset .xf.Site.Params.projects "misc" }}
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="mb-0">Misc {{ .header }}</h3>
+				<nav class="misc-files">
+					<ul>
+						{{ range .xf.Site.Params.projects.misc }}
+						<li><i class="{{ .icon }}"></i> 
+						{{ if isset . "link" }}
+							<a href="{{ .link }}" target="_blank">{{ .text }}</a>
+						{{else}}
+							<span>{{ .text }}</span>
+						{{end}}
+						</li>
+							{{ if isset . "description" }}
+								<ul>
+									<li>{{ .description }}</li>
+								</ul>
+							{{end}}
+						{{end}}
+					</ul>
+				</nav>
+			</div>
+		</div>
+		{{end}}
+	</div>
+{{ partial "svg/svgbottom.html" (dict "height" 300 "index" .index) }}
+</section>

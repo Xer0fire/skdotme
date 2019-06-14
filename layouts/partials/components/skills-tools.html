@@ -1,0 +1,24 @@
+{{ $no :=  float (len .input) }}
+{{ $col := math.Ceil (div $no 2) }}
+<div class="row">
+	<div class="col-md-6">
+		<ul style="list-style-type: none; margin: 0px; padding: 0px">
+			{{ range first $col .input}}
+			<li>
+				<span>{{ .name }}</span>
+				{{ partial "components/stars.html" (dict "stars" .stars) }}
+			</li>
+			{{end}}
+		</ul>
+	</div>
+	<div class="col-md-6">
+		<ul style="list-style-type: none; margin: 0px; padding: 0px">
+			{{ range after $col .input}}
+			<li>
+				<span>{{ .name }}</span>
+				{{ partial "components/stars.html" (dict "stars" .stars) }}
+			</li>
+			{{end}}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<section id="{{ .navid }}">
+	{{ partial "svg/svgtop.html" (dict "index" .index) }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="mb-0">{{ .header }}</h2>
+				<h5 class="text-on-back">://0{{ .index}}</h5>
+				<hr/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<h3 class="mb-0">About Me</h3>
+				{{ range .xf.Site.Params.profile.aboutme }}
+				<p>{{ .text | safeHTML }}</p>
+				{{end}}
+			</div>
+			<div class="col-md-2 text-center my-auto">
+				{{ partial "svg/xf-flame.html" (dict "height" 160) }}
+			</div>
+			<div class="col-md-5">
+				<h3 class="mb-0">Details</h3>
+				{{ range .xf.Site.Params.profile.details }}
+				<p class="mb-0"><i class="{{ .icon }}"></i> <strong>{{ .attr }}:</strong></p>
+				<p class="ml-5">{{ .text }}</p>
+				{{end}}
+				{{ partial "components/blockquote.html" .xf.Site.Params.profile.quote }}
+			</div>
+		</div>
+	</div>
+	{{ partial "svg/svgbottom.html" (dict "height" 300 "index" .index) }}
+</section>

@@ -1,0 +1,72 @@
+<section id="{{ .navid }}">
+{{ partial "svg/svgtop.html" (dict "index" .index) }}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="mb-0">{{ .header }}</h2>
+			<h5 class="text-on-back">://0{{ .index}}</h5>
+			<hr/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="mb-0">Career</h3>
+		</div>
+	</div>
+	{{ $navid := .navid }}
+	{{ range $index, $element := .xf.Site.Params.experience.career.job }}
+	<div id="experience" class="row{{ if ne $index 0 }} mt-5{{end}}">
+		<div class="col-md-4">
+			<h5 id="{{ .company }}-company" class="mt-0">{{ .company }}</h5>
+			<p><i class="far fa-calendar-alt"></i> {{ .datestart }} - {{ .dateend }}</p>
+			{{ if isset . "duties" }}
+			<a class="mt-0 btn btn-primary btn-round collapsed" data-toggle="collapse" href="#{{ $navid }}collapse{{ $index }}" role="button" aria-label="details" aria-labelledby="{{ .company }}-company" aria-expanded="false" aria-controls="{{ $navid }}collapse{{ $index }}"></a>
+			{{end}}
+		</div>
+		<div class="col-md-8">
+			<p><strong>{{ .position }}{{ if isset . "duties" }} - {{ .contract }}{{end}}</strong></p>
+			<p>{{ .description }}</p>
+			{{ if isset . "duties" }}
+			<div class="collapse" id="{{ $navid }}collapse{{ $index }}">
+				<ul>
+					{{ range .duties }}
+						<li>{{.text}}</li>
+					{{end}}
+				</ul>
+			</div>
+			{{end}}
+			<span class="experience-details">
+				<span>
+					<i class="fas fa-map-marker-alt"></i> {{ .location }}
+				</span>
+				{{ if isset . "link" }}
+				|
+				<span>
+					<i class="fas fa-link"></i>
+					<a href="{{ .link }}" target="_blank">{{ .link }}</a>
+				</span>
+			</span>
+			{{end}}
+		</div>
+	</div>
+	{{end}}
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="mb-0 mt-2">Education</h3>
+		</div>
+	</div>
+	<div class="row">
+		{{ range .xf.Site.Params.experience.education.qualifacation }}
+		<div class="col-md-4">
+			<h5 class="mt-0">{{ .name }}</h5>
+			<p>
+				<i class="fas fa-map-marker-alt"></i> {{ .institution }}
+				<br/>
+				<i class="far fa-calendar-alt"></i> {{ .yearstart }} - {{ .yearend }}
+			</p>
+		</div>
+		{{end}}
+	</div>
+</div>
+{{ partial "svg/svgbottom.html" (dict "height" 300 "index" .index) }}
+</section>

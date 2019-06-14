@@ -1,0 +1,65 @@
+section{
+	padding: 70px 0;
+	position: relative;
+	background: transparent;
+	z-index: 1;
+}
+
+section:last-child {
+	padding-bottom: 0;
+}
+
+.section-navbars{
+	padding-bottom: 0;
+}
+
+.section-full-screen{
+	height: 100vh;
+}
+.section-signup{
+	padding-top: 20vh;
+}
+
+.page-header{
+	height: 100vh;
+	min-height: 100vh;
+	max-height: 999px;
+	padding: 0;
+	color: $white-color;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+
+	.content-center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 2;
+		-ms-transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		text-align: center;
+		color: #FFFFFF;
+		padding: 0 15px;
+		width: auto;
+		max-width: 880px;
+	}
+}
+
+.clear-filter{
+	&[filter-color="orange"]{
+		@include linear-gradient(rgba($black-color,.20), rgba(224, 23, 3, 0.6));
+	}
+}
+
+.section-separator {
+	margin-top: -70px;
+}
+
+section .separtor, section .separator-bottom {
+	z-index: -1;
+}
+
+[data-background-color="orange"]{
+	background-color: $orange-bg;
+}

@@ -1,0 +1,8 @@
+{{ if eq .enabled true }}
+<blockquote class="blockquote blockquote-primary">
+	<p class="mb-0">"{{ .quote }}"</p>
+	<footer class="blockquote-footer">
+		<cite title="Source Title">{{ .cite }}</cite>
+	</footer>
+</blockquote>
+{{end}}

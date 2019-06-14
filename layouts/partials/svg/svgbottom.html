@@ -1,0 +1,7 @@
+{{ if eq (mod .index 2) 0 }}
+<div class="separator separator-bottom">
+	<svg x="0" y="0" viewBox="0 0 2560 {{ .height }}" class="separator-svg-bottom" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+		<polygon points="2560 {{ .height }} 2560 0 0 {{ .height }}"></polygon>
+	</svg>
+</div>
+{{end}}

@@ -1,0 +1,172 @@
+baseURL = "https://stevenkidd.me"
+languageCode = "en-gb"
+title = "::/ [[MY NAME]]| [[MY TITLE]]"
+theme = "skdotme"
+
+[params]
+	htmllanguageCode = "en"
+	#metadata
+	author = "[[MY NAME]]"
+	description = "[[MY DESCRIPTION]]"
+	faviconcolor = "#da532c"
+	themecolor = "#ffffff"
+
+	# Button conf located at - params.header.button
+	enabledownload = "true"
+
+# External CSS
+[[params.css]]
+	URL = "https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+	integrity = "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+	crossorigin = "anonymous"
+
+# Also controls what sections are displayed
+# To hide a section comment out the declaration
+[[params.nav]]
+	partial = "profile"
+	link = "profile"
+	text = "Profile"
+[[params.nav]]
+	partial = "experience"
+	link = "experience"
+	text = "Experience"
+[[params.nav]]
+	partial = "abilities"
+	link = "abilities"
+	text = "Abilities"
+[[params.nav]]
+	partial = "projects"
+	link = "projects"
+	text = "Projects"
+[[params.nav]]
+	partial = "contact"
+	link = "contact"
+	text = "Contact"
+
+# First 4 are on top nav - rest are linked in footer alongside the first 4
+[[params.social]]
+	URL = "#"
+	icon = "fab fa-github"
+	text = "Github"
+[[params.social]]
+	URL = "#"
+	icon = "fab fa-linkedin-in"
+	text = "LinkedIn"
+[[params.social]]
+	URL = "#"
+	icon = "fab fa-behance"
+	text = "Behance"
+[[params.social]]
+	URL = "#"
+	icon = "fab fa-dribbble"
+	text = "Dribble"
+
+[params.header]
+	h1 = "[[MY NAME]]"
+	h3 = "[[MY TITLE]]"
+	[params.header.button]
+		#link to your résumé
+		link = "#"
+		icon = "fas fa-cloud-download-alt"
+		text = "Download Résumé"
+
+[params.profile]
+	[[params.profile.aboutme]]
+		text = "[[ABOUT ME]]"
+
+	[[params.profile.details]]
+		icon = "fas fa-signature"
+		attr = "Name"
+		text = "[[MY NAME]]"
+	[[params.profile.details]]
+		icon = "fas fa-birthday-cake"
+		attr = "Age"
+		text = "[[MY AGE]]"
+	[[params.profile.details]]
+		icon = "fas fa-map-marker-alt"
+		attr = "Location"
+		text = "[[MY LOCATION]]"
+
+	[params.profile.quote]
+		enabled = true
+		quote = "My Quote"
+		cite = "My Cite"
+
+[params.experience]
+	[[params.experience.career.job]]
+		company = "Some Company"
+		# MONTH YEAR | JAN 1970
+		datestart = "JAN 1970"
+		dateend = "JAN 1971"
+		# Full time | Part time
+		contract = "Full Time"
+		position = "Position in company"
+		description = "Brief description"
+		# Town, Postcode
+		location = "Office location"
+		link = "#"
+			[[params.experience.career.job.duties]]
+				text = "Some Duties"
+
+	[[params.experience.education.qualifacation]]
+		name = "My Qualifacation"
+		institution = "My University"
+		# YEAR | 1970
+		yearstart = "1970"
+		yearend = "1971"
+
+[params.abilities]
+	[[params.abilities.skills]]
+		name = "Skill Name"
+		stars = "5"
+
+	[[params.abilities.tools]]
+		name = "Tool Name"
+		stars = "5"
+
+	[[params.abilities.language]]
+		svgflag = "img/flag-no.svg"
+		language = "Norsk (nb-NO)"
+		proficiency = "Daily Use"
+		stars = 3
+			[[params.abilities.language.site]]
+				name = "Duome"
+				link = "#"
+
+	[params.abilities.quote]
+		enabled = true
+		quote = "My Quote"
+		cite = "My Cite"
+
+[params.projects]
+	[[params.projects.item]]
+		title = "stevenkidd.me"
+		generator = "Hugo"
+		linktext = "Source on Github"
+		text = "Portfolio / CV webpage made using Hugo."
+		img = "skdotme.webp"
+
+		[[params.projects.item.social]]
+			link = "#"
+			icon = "fab fa-github"
+		[[params.projects.item.social]]
+			link = "#"
+			icon = "fab fa-behance"
+
+	[[params.projects.misc]]
+		link = "#"
+		icon = "fab fa-js"
+		text = "somefile.js"
+		description = "My Description"
+
+[params.contact]
+	text = "Feel free to contact me on:"
+
+	[[params.contact.detail]]
+		link = "[[MY EMAIL]]"
+		icon = "far fa-envelope"
+
+	[params.contact.quote]
+		enabled = true
+		quote = "My Quote"
+		cite = "My Cite"

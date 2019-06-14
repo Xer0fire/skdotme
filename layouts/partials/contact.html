@@ -1,0 +1,29 @@
+<section id="{{ .navid }}">
+{{ partial "svg/svgtop.html" (dict "index" .index) }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="mb-0">{{ .header }}</h2>
+				<h5 class="text-on-back">://0{{ .index}}</h5>
+				<hr/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-7">
+				<p>{{ .xf.Site.Params.contact.text }}</p>
+				{{range .xf.Site.Params.contact.detail}}
+				<span class="mr-2">
+					{{ if isset . "link" }}
+						<i class="{{ .icon }}"></i> <a href="mailto:{{ .link }}">{{.link}}</a>
+					{{else}}
+						<i class="{{ .icon }}"></i> {{ .text }}
+					{{end}}
+				</span>
+				{{end}}
+			</div>
+			<div class="col-md-5">
+				{{ partial "components/blockquote.html" .xf.Site.Params.contact.quote }}
+			</div>
+		</div>
+	</div>
+</section>

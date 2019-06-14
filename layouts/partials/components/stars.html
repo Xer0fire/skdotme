@@ -1,0 +1,10 @@
+<span class="float-right">
+{{ $j := .stars }}
+{{ range $i, $sequence :=  (seq 5) }}
+	{{ if lt $j $sequence }}
+		<i class="far fa-star"></i>
+	{{else}}
+		<i class="fas fa-star"></i>
+	{{ end }}
+{{ end }}
+</span>

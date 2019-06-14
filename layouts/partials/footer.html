@@ -1,0 +1,58 @@
+	<footer class="footer{{ if eq (mod .secno 2) 0 }} footer-color{{end}}">
+	<div class="container">
+	  <hr>
+	  <div class="row align-items-center justify-content-md-between">
+		<div class="col-md-6">
+		<div class="footer-social" id="footer-social">
+			<nav>
+				<ul>
+				{{ range .xf.Site.Params.social }}
+				<li>
+					<a class="text-decoration-none text-primary" href="{{ .URL }}" target="_blank" aria-label="{{ .text }} social link">
+						<i class="{{ .icon }}"></i>
+					</a>
+				</li>
+				{{end}}
+				</ul>
+			</nav>
+		</div>
+		</div>
+		<div class="col-md-6">
+			<div class="copyright">
+				<img class="sm-icon-svg" src="img/logo/logo-bootstrap.svg" height="12" alt="Bootstrap Icon" /> <a href="https://getbootstrap.com/">Bootstrap</a> | <img class="sm-icon-svg" src="img/logo/logo-hugo.svg" height="12" alt="Hugo Icon" /> <a href="https://gohugo.io/">Hugo</a> | <i class="fab fa-github"></i> <a href="https://github.com/xer0fire/skdotme/">Theme</a>
+			</div>
+		</div>
+	  </div>
+	</div>
+	</footer>
+	<!-- JS Files -->
+	{{ $js1 := resources.Get "js/core/jquery.min.js" }}
+	{{ $js2 := resources.Get "js/core/bootstrap.min.js" }}
+	{{ $js3 := resources.Get "js/plugins/particles.min.js" }}
+	{{ $js4 := resources.Get "js/plugins/jquery.scrollTo.min.js" }}
+	{{ $js5 := resources.Get "js/plugins/jquery.matchHeight-min.js" }}
+	{{ $js6 := resources.Get "js/plugins/cookieconsent.min.js" }}
+	{{ $js7 := resources.Get "js/skdotme.min.js" }}
+
+	{{ $defaultJS := slice $js1 $js2 $js3 $js4 $js5 $js6 $js7 | resources.Concat "js/jsbundle.js" }}
+	
+	<script type="text/javascript" src="{{ $defaultJS.Permalink }}"></script>
+
+	<script>
+		window.addEventListener("load", function(){
+		window.cookieconsent.initialise({
+		  "palette": {
+			"popup": {
+			  "background": "#000"
+			},
+			"button": {
+			  "background": "transparent",
+			  "text": "#f1d600",
+			  "border": "#f1d600"
+			}
+		  },
+		  "content": {
+			"message": "This website uses cookies to ensure you get the best experience."
+		  }
+		})});
+	</script>

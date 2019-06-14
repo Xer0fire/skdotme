@@ -1,0 +1,54 @@
+<section id="{{ .navid }}">
+{{ partial "svg/svgtop.html" (dict "index" .index) }}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="mb-0">{{ .header }}</h2>
+			<h5 class="text-on-back">://0{{ .index}}</h5>
+			<hr/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		<h3 class="mb-0">Skills</h3>
+		{{ partial "components/skills-tools.html" (dict "input" .xf.Site.Params.abilities.skills) }}
+		<h3 class="mb-0 mt-2">Tools</h3>
+		{{ partial "components/skills-tools.html" (dict "input" .xf.Site.Params.abilities.tools) }}
+		{{ if isset .xf.Site.Params.abilities "language" }}
+		<h3 class="mb-0 mt-2">Language</h3>
+		<div class="row">
+			<div class="col-md-6">
+				<ul style="list-style-type: none; margin: 0px; padding: 0px">
+					{{ range .xf.Site.Params.abilities.language }}
+					<li>
+						<img src="{{ .svgflag }}" alt="{{ .language }}" height="16px" width="22px" />
+						<span>{{ .language }} ({{ .proficiency }})</span>
+						{{ partial "components/stars.html" (dict "stars" .stars) }}
+						{{ if isset . "site" }}
+						<br/>
+						<span class="ml-4">
+							{{range .site }}
+							<i class="fas fa-link"></i> <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+							{{end}}
+						</span>
+						{{end}}
+					</li>
+					{{end}}
+				</ul>
+			</div>
+			<div class="col-md-6">
+				{{ partial "components/blockquote.html" .xf.Site.Params.abilities.quote }}
+			</div>
+		</div>
+		{{else}}
+			{{ if isset .xf.Site.Params.abilities "quote" }}
+			<div class="col-md-12 mt-2">
+				{{ partial "components/blockquote.html" .xf.Site.Params.abilities.quote }}
+			</div>
+			{{end}}
+		{{end}}
+		</div>
+	</div>
+</div>
+{{ partial "svg/svgbottom.html" (dict "height" 300 "index" .index) }}
+</section>

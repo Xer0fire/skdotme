@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{.Site.Params.htmllanguageCode}}">
+
+{{ partial "head.html" . }}
+
+<body class="sidebar-collapse" data-spy="scroll" data-target=".navbar" data-offset="40">
+
+	{{ partial "nav.html" . }}
+
+	{{ partial "header.html" . }}
+
+	<main>
+		{{ $secno := len .Site.Params.nav }}
+		{{ $secdata := index .Site.Params.nav }}
+		{{ range $index, $element := $secdata }}
+			{{ $dict := dict "xf" $ "index" (add $index 1) "navid" $element.partial "header" $element.text }}
+			{{ $partial := (printf "%s%s" $element.partial ".html") }}
+			{{ partial $partial $dict }}
+		{{end}}
+	</main>
+
+	{{ partial "footer.html" (dict "xf" . "secno" $secno) }}
+
+</body>
+
+</html>

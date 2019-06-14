@@ -1,0 +1,17 @@
+<header id="particles-js" class="page-header clear-filter" filter-color="orange">
+	<div class="content-center brand">
+		<h1>{{ .Site.Params.header.h1 }}</h1>
+		<h3>{{ .Site.Params.header.h3 }}</h3>
+		{{ if eq .Site.Params.enabledownload "true" }}
+			<a href="{{ .Site.Params.header.button.link }}" class="btn btn-primary btn-round"  target="_blank">
+				<i class="{{ .Site.Params.header.button.icon }}"></i> {{ .Site.Params.header.button.text }}
+			</a>
+		{{end}}
+	</div>
+	<a href="#profile" class="header-scroll-down" aria-label="header go to first section link">
+		<svg viewBox="0 0 68 33" class="chevron-down">
+			<path d="M.58 3.414l27.432 27.433c2.715 2.715 7.167 2.787 9.964.164L67.356 3.46 64.62.54 35.24 28.093c-1.222 1.146-3.212 1.114-4.4-.075L3.408.586.579 3.414z"></path>
+		</svg>
+	</a>
+	{{ partial "svg/svgbottom.html" (dict "height" 200) . }}
+</header>
